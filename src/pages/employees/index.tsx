@@ -26,6 +26,8 @@ import { EmployeeService } from "@/shared/services/api/employee/employeeService"
 import { Ficha } from "@/shared/types";
 import { useDebounce } from "@/shared/hooks";
 
+import prisma from "@/lib/prisma";
+
 export default function EmployeeList() {
   const [rows, setRows] = useState<Ficha[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
@@ -121,9 +123,7 @@ export default function EmployeeList() {
                       <DeleteIcon />
                     </Icon>
                   </IconButton>
-                  <IconButton
-                    onClick={() => router.push(`/employees/details`)}
-                  >
+                  <IconButton onClick={() => router.push(`/employees/details`)}>
                     <IconButton size="small">
                       <Icon>
                         <EditIcon />

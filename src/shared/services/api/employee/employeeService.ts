@@ -2,35 +2,35 @@ import { FichaTotalCount } from "@/shared/types/totalCount";
 import { Api } from "../../axios-config";
 
 const getAll = async (
-    page: number = 1,
-    filter: string = ""
-  ): Promise<FichaTotalCount | Error> => {
-    try {
-      const { data, headers } = await Api.get(
-        `/employees?_page=${page}&_limit=7&nome_like=${filter}`
-      );
-      if (data) {
-        return {
-          data,
-          totalCount: headers["x-total-count"],
-        };
-      }
-      return new Error("Error ao listar os registros");
-    } catch (error) {
-      console.error(error);
-      return new Error(
-        (error as { message: string }).message || "Error ao listar os registros"
-      );
+  page: number = 1,
+  filter: string = ""
+): Promise<FichaTotalCount | Error> => {
+  try {
+    const { data, headers } = await Api.get(
+      `/employes?_page=${page}&_limit=7&nome_like=${filter}`
+    );
+    if (data) {
+      return {
+        data,
+        totalCount: headers["x-total-count"],
+      };
     }
-  };
+    return new Error("Error ao listar os registros");
+  } catch (error) {
+    console.error(error);
+    return new Error(
+      (error as { message: string }).message || "Error ao listar os registros"
+    );
+  }
+};
 //   const getById = async (id: number): Promise<IDetalhePessoa | Error> => {
 //     try {
 //       const { data } = await Api.get(`/employees/${id}`);
-  
+
 //       if (data) {
 //         return data;
 //       }
-  
+
 //       return new Error("Erro ao consultar o registro.");
 //     } catch (error) {
 //       console.error(error);
@@ -44,11 +44,11 @@ const getAll = async (
 //   ): Promise<number | Error> => {
 //     try {
 //       const { data } = await Api.post<IDetalhePessoa>("/employees", dados);
-  
+
 //       if (data) {
 //         return data.id;
 //       }
-  
+
 //       return new Error("Erro ao criar o registro.");
 //     } catch (error) {
 //       console.error(error);
@@ -80,7 +80,7 @@ const getAll = async (
 //       );
 //     }
 //   };
-  
+
 export const EmployeeService = {
-    getAll
+  getAll
 };
