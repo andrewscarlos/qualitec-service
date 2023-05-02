@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Employee {
+  id                      Int   @id @default(autoincrement())
+  codContabilidade        String?
+  nome                    String
+  dataNascimento          DateTime?
+  sexo                    String?
+  estadoCivil             String?
+  grauDeInstrucao         String?
+  cutis                   String?
+  rg                      String?  @unique
+  orgaoEmissor            String?
+  dataExpedicao           DateTime?
+  cpf                     String?  @unique
+  naturalidade            String?
+  nacionalidade           String?
+  nomeDoPai               String?
+  nomeDaMae               String?
+  email                   String?  @unique
+  telefone                String?
+  celular                 String?
+  rua                     String?
+  numero                  String?
+  complemento             String?
+  bairro                  String?
+  cidade                  String?
+  estado                  String?
+  cep                     String?
+  pontoDeEmbarque         String?
+  CaNumero                String?
+  cat                     String?
+  categoriaCNH            String?
+  numeroCNH               String?
+  dataVencimentoCNH       DateTime?
+  fatRH                   String?
+  numeroTituloEleitor     String?  @unique
+  zona                    String?
+  cProf                   String?
+  serie                   String?
+  dataExpedicaoCpro       DateTime?
+  dataAso                 DateTime?
+  numeroPIS               String?
+  dataCadastroPIS         String?
+  FGTS                    Boolean?
+  dataOpcao               DateTime?
+  nomeBanco               String?
+  agencia                 String?
+  conta                   String?
+  digito                  String?
+  ativo                   Boolean?
+  locacaoPrincipal        String?
+  createdAt               DateTime      @default(now())
+}
